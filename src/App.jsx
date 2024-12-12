@@ -11,27 +11,41 @@ import axios from "axios"
 function App() {
 
   const [films, setFilms] = useState([])
+  const [series, setSeries] = useState([])
   const [searchQuery, setSearchQuery] = useState('')
   const apiKey = '78a44a25b2660e74bdb31e0ac51d2a58'
 
   function fetchFilms() {
 
-    axios.get(BASE_URI, {
+    axios.get(`${BASE_URI}/movie`, {
       params: {
         api_key: apiKey,
-        query: searchQuery
+        query: searchQuery,
       }
     })
       .then((res) => {
-        setFilms(res.data.results)
-        console.log(res.data.results)
-
+        setFilms(res.data.results);
+        console.log('Films:', res.data.results);
       })
       .catch((err) => {
-        console.error(err)
+        console.error(err);
+      });
 
+    axios.get(`${BASE_URI}/tv`, {
+      params: {
+        api_key: apiKey,
+        query: searchQuery,
+      }
+    })
+      .then((resTv) => {
+        setSeries(resTv.data.results);
+        console.log('Series:', resTv.data.results);
       })
+      .catch((err) => {
+        console.error(err);
+      });
   }
+
 
   useEffect(() => {
     fetchFilms()
@@ -50,7 +64,7 @@ function App() {
 
 
   return (
-    <GlobalContext.Provider value={{ films }}>
+    <GlobalContext.Provider value={{ films, series }}>
       <Header searchQuery={searchQuery} filterFilms={filterFilms} handleSearch={handleSearch} setSearchQuery={setSearchQuery} />
       <Main />
       <Footer />
