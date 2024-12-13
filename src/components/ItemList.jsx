@@ -1,11 +1,12 @@
-import Card from "./Card"
+import Card from "../components/card/Card"
 
-export default function ItemList({ items = [], title }) {
+export default function ItemList({ items = [] }) {
+
 
     return (
         <section>
             <div>
-                <ul>
+                <ul className="card-list">
                     {items.map((item) => (
                         <li key={item.id}>
                             <Card item={item} />

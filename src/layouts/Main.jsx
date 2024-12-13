@@ -8,7 +8,7 @@ export default function Main() {
 
 
     return (
-        <main>
+        <main className="container">
             <ItemList items={films} />
             <ItemList items={series} />
         </main>
