@@ -11,7 +11,7 @@ import style from "../card/Card.module.css"
 export default function Card({ item }) {
 
     const { title, original_title, name, original_name, vote_average, original_language, poster_path, overview } = item
-    const IMG_URI = 'https://image.tmdb.org/t/p/w154'
+    const IMG_URI = 'https://image.tmdb.org/t/p/w342'
 
     const flagImages = {
         it: IT,
@@ -46,7 +46,7 @@ export default function Card({ item }) {
 
             <div className={style.card_body}>
                 <h3 className={style.title}>Titolo: {title || name}</h3>
-                <p className={style.sub_title}>Titolo originale: {original_title || original_name}</p>
+                <p className={style}>Titolo originale: {original_title || original_name}</p>
                 <div className={style.icons}>
                     <span>
                         Lingua:
