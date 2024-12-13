@@ -5,9 +5,11 @@ import ES from "../assets/es.webp"
 import EN from "../assets/us.webp"
 import FR from "../assets/fr.webp"
 
-export default function Card() {
 
-    const { films, series } = useContext(GlobalContext)
+export default function Card({ item }) {
+
+    const { title, original_title, name, original_name, vote_average, original_language, poster_path } = item
+    const IMG_URI = 'https://image.tmdb.org/t/p/w154'
 
     const flagImages = {
         it: IT,
@@ -16,41 +18,19 @@ export default function Card() {
         es: ES
     }
 
+
     return (
+        <div>
+            <img src={`${IMG_URI}${poster_path}`} alt="" />
+            <h3>{title || name}</h3>
+            <p>{original_title || original_name}</p>
 
-        <ul>
-            <li>
-                {
-                    films.map(film => {
-
-                        const flagImage = flagImages[film.original_language]
-
-                        return <ul key={film.id}>
-                            <li>{film.title}</li>
-                            <li>{film.original_title}</li>
-                            <li>{film.vote_average}</li>
-                            {flagImage && <img src={flagImage} alt="" />}
-                        </ul>
-                    })
-                }
-            </li>
-
-
-            <li>
-                {
-                    series.map(serie => {
-
-                        const flagImage = flagImages[serie.original_language]
-
-                        return <ul key={serie.id}>
-                            <li>{serie.name}</li>
-                            <li>{serie.original_name}</li>
-                            <li>{serie.vote_average}</li>
-                            {flagImage && <img src={flagImage} alt="" />}
-                        </ul>
-                    })
-                }
-            </li>
-        </ul>
+            {
+                flagImages[original_language] ?
+                    <img src={flagImages[original_language]} alt="" /> :
+                    <p>{original_language}</p>
+            }
+            <p>{vote_average}</p>
+        </div>
     )
 }
