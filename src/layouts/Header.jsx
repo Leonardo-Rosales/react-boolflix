@@ -6,10 +6,11 @@ export default function Header({ filterFilms, searchQuery, setSearchQuery, handl
 
             <div className="nav-bar">
 
+                <h1>
+                    <a className="logo" href="">Boolflix</a>
+                </h1>
+
                 <ul className="list-link">
-                    <li>
-                        <a href="">Boolflix</a>
-                    </li>
                     <li>
                         <a href="">Home</a>
                     </li>

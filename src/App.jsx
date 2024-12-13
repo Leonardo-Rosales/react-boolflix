@@ -59,6 +59,7 @@ function App() {
     if (searchQuery.trim()) {
       fetchFilms(searchQuery)
     }
+    setSearchQuery('')
   }
 
 

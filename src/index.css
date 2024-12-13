@@ -24,20 +24,72 @@ a {
     width: 20%
 }
 
+body {
+    background-color: #0a233c;
+}
+
 /* Header */
+
+header {
+    background-color: #1e1e1e;
+    padding: 10px 0;
+    color: white;
+    margin-bottom: 60px;
+}
 
 .nav-bar {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    font-size: 22px;
-    margin-bottom: 60px;
+    align-items: center;
+    padding: 15px 30px;
 }
 
 .list-link {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 3rem;
+
+}
+
+.logo {
+    font-size: 40px;
+    color: gold;
+}
+
+.logo:hover {
+    color: white;
+}
+
+.list-link a {
+    color: white;
+    font-size: 24px;
+}
+
+.list-link a:hover {
+    color: gold;
+}
+
+form {
+    display: flex;
+    align-items: center;
+}
+
+input {
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 8px;
+    margin-right: 10px;
+    border: none;
+}
+
+button {
+    padding: 8px 12px;
+    background-color: gold;
+    border: none;
+    color: white;
+    font-size: 14px;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
 /* Main */
